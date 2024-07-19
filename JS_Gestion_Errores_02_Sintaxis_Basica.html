@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Gestion_Errores_02_Sintaxis_Basica</title>
+</head>
+<body>
+    
+</body>
+<script>
+// Crear función con función como argumento
+function gestionErrores(func) {
+    return func(); // Devolver la función y llamarla
+  }
+  widget = () => {
+    return "<div>Mielma</div>";
+  };
+  try {
+    console.log(gestionErrores("widget")); // Si pasamos una string -> "Ha ocurrido un error" // [object Error] {}
+  } catch (e) {
+    console.log("Ha ocurrido un error", e);
+  }
+  gestionErrores(widget);       
+
+</script>
+</html>

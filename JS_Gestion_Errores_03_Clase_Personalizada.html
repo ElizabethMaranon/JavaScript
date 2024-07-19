@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Gestion_Errores_02_Sintaxis_Basica</title>
+</head>
+<body>
+    
+</body>
+<script>
+  class errorPersonalizado extends Error {
+    constructor(mensaje = "Ha ocurrido un error", ...params) {
+      super(...params);
+  
+      this.mensaje = mensaje;
+    }
+  }
+  // Crear función con función como argumento
+  function gestionErrores(func) {
+    return func(); // Devolver la función y llamarla
+  }
+  try {
+    console.log(gestionErrores("texto equivocado")); // Si pasamos una string -> "Ha ocurrido un error" // [object Error] {}
+  } catch (e) {
+    throw new errorPersonalizado("errorPersonalizado", "Error personalizado");
+  }
+  widget = () => {
+    return "<div>Mielma</div>";
+  };
+</script>
+</html>
+
