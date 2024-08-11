@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+</head>
+<!-- Dar estilo a las clases -->
+<style>
+  .encabezadoActivado {
+    color: firebrick;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  .encabezado.Desactivado {
+    color: cornflowerblue;
+    font-size: 4em;
+    cursor: pointer;
+  }
+</style>
+<body>
+<!-- Crear id -->
+  <div id="encabezado" class="encabezadoActivado">
+    Hi there
+  </div>
+
+</body>
+
+<script>
+    // Función cambiar encabezado por click
+  const heading = document.getElementById('encabezado');
+  heading.onclick = () => {
+    if (heading.classList.contains('encabezadoActivado')) {
+      heading.classList.remove('encabezadoActivado');
+      heading.classList.add('encabezado.Desactivado');
+    } else {
+      heading.classList.add('encabezadoActivado');
+      heading.classList.remove('encabezado.Desactivado');
+    };
+  }
+
+
+  heading.onclick = () => {
+    if (heading.classList.contains('encabezadoActivado')) {
+      heading.className = 'encabezado.Desactivado';
+    } else {
+      heading.className = 'encabezadoActivado';
+    };
+  }
+</script>
+</html>
