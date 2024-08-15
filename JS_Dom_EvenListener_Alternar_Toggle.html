@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Dom_EvenListener_Alternar_Toggle</title>
+</head>
+
+<style>
+    /* Style ocultación */
+    .ocultar {
+        display: none;
+    }
+</style>
+
+<body>
+    <!-- Crear botón -->
+    <button id="alternarBtn">Alternar(Toggle)</button>
+    <!-- id  class ocultar-->
+    <div id="encabezado" class="ocultar">Toggle alternar ocultar/mostrar</div>
+    
+</body>
+
+<script>
+    // Variable seleccionando la id que queramos
+    const encabezado = document.getElementById('encabezado');
+    // Variable seleccionando el botón
+    const btn = document.getElementById('alternarBtn');
+    // Agregar detector de eventos, 
+    btn.addEventListener('click', (e) => {
+        encabezado.classList.toggle('ocultar')
+    });
+
+</script>
+
+</html>
