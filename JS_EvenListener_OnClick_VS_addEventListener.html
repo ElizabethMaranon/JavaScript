@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclick en línea vs addEventListener</title>
+</head>
+
+<style>
+</style>
+
+<body>
+    <!-- Onclick 1: Crear div id -->
+    <!--  addEventListener 1: Crear div id -->
+    <div id="fechaComponente"></div> 
+
+    <!-- Onclick 4: Crear Botón con onclick con nombre función flecha -->
+    <button onclick="fechaRender()">Fecha con Onclick</button>
+    <!-- addEventListener 4: Crear Botón con id fechaBoton -->
+    <button id="fechaBoton">Fecha con addEventListener</button>
+
+</body>
+
+<script>
+    // Onclick 2: Crear variable buscando el div id
+    // addEventListener 2: Crear variable buscando el div id
+    const fechaElemento = document.getElementById('fechaComponente');
+    // addEventListener 3: Crear variable boton
+    const fechaBoton = document.getElementById('fechaBoton')
+
+    // Onclick 3: Crear función flecha sin argumentos
+    fechaRender = () => {
+        fechaElemento.innerHTML = Date();
+    }
+    // addEventListener 5: Crear addEventListener con función flecha
+    fechaBoton.addEventListener('click', (event) =>{
+        fechaElemento.innerHTML = Date();
+    })
+</script>    
+</html>
