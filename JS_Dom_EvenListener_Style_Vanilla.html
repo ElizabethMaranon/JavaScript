@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo agregar y eliminar estilos CSS en Vanilla JavaScript
+    </title>
+
+    <style>
+      /* 2. Establecer ancho imagen */
+      img {
+          width: 400px;
+      }
+    /* 6. Agregar borde style transparente para no modificar el resto del documento al poner el borde en color */
+    .clase-de-la-imagen{
+      border: 0px 40px 0px 0px solid transparent;
+    }
+    </style>
+</head>
+<body>
+    <!--1. Añadir div e imagen  -->
+    <div class='contenedor'>
+      <img src="image/Logo_Mielma_Developer.png" class="clase-de-la-imagen" alt="Logo">
+    </div>
+    
+</body>
+<script>
+  // 3. Variable selectora de imagen, si hubiera mas de una imagen, querySelectorAll y si indice
+  const logo = document.querySelector('.clase-de-la-imagen');
+  // 4. Añadir addEventListener si pasamos el ratón por encima
+  logo.addEventListener('mouseover', (e) => {
+    e.target.style.borderRight = '40px solid red';
+  });
+  // 5. Añadir addEventListener si quitamos el ratón de encima
+  logo.addEventListener('mouseout', (e) => {
+    e.target.style.borderRight = '40px solid transparent';
+  });
+</script>
+</html>
