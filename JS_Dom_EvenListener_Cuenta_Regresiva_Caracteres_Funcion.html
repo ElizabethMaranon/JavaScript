@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS_Dom_EvenListener_Cuenta_Regresiva_Caracteres</title>
+</head>
+<body>
+    <!-- 1. Agregar cuadro texto -->
+    <input type="text" class="insertarMensaje">
+    <!-- 2. Div contador caracteres, Misma cantidad que variable max -->
+    <div>
+        Caracteres pendientes <span class="contadorCaracteres"></span>
+    </div>
+    <hr>
+    <!-- 1. Agregar cuadro texto -->
+    <input type="text" class="insertarTags">
+    <!-- 2. Div contador caracteres, Misma cantidad que variable max -->
+    <div>
+        Caracteres pendientes <span class="contadorTags"></span>
+    </div>
+    
+</body>
+<script>
+    // 3. Variables 
+    const insertarMensaje = document.querySelector('.insertarMensaje');
+    const contadorCaracteres = document.querySelector('.contadorCaracteres');
+    const insertarTags = document.querySelector('.insertarTags');
+    const contadorTags = document.querySelector('.contadorTags')
+
+    // 4. Asegurar contador de caracteres y que no se pasen
+    // var = (dos argumentos) => if contenido.longitud>max falso; else true
+    const asegurarContadorCaracteres = (content, max) => {
+        // Agregar cual es el máximo
+        const maxLength = max;
+        if(content.length > maxLength) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // 5. EventListener(Oyente de eventos) rastrea cada vez que se levante una tecla
+    // Crear función flecha de la funcionalidad, con tres argumentos
+    const validador_de_longitud_de_campo_de_texto = (campoTexto, contador, maxCont) => {
+        campoTexto.onkeyup = function() { // Max- contador longitud contador caracteres
+            contador.innerHTML = maxCont-this.value.length;
+            // si el valor de asegurar es max-1 deshabilitar input(insertar mensaje)
+            // Si no sueltas la tecla, pero te pasas de cantidad, no deshabilita hasta que levantes
+            if(!asegurarContadorCaracteres(this.value, (maxCont-1))) {
+                campoTexto.disabled = true;
+            }
+        }
+    }
+
+    // 6. Llamar a la función con la variable y argumentos deseados
+    validador_de_longitud_de_campo_de_texto(insertarMensaje,contadorCaracteres,144);
+    validador_de_longitud_de_campo_de_texto(insertarTags,contadorTags,20)
+
+</script>
+</html>
