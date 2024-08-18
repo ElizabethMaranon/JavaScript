@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo agregar teclas de acceso rápido a una aplicación web en Vanilla JavaScript
+    </title>
+</head>
+<body>
+    <!-- 1. Crear cuadrado para insertar texto -->
+    <input type="text" id="barraBúsqueda"/>
+    
+</body>
+<script>
+    // 2. Crear función flecha
+    const atajoTecla = (e) => {
+        let eventoVentana = window.event ? event:e;
+        // letras tiene un código numérico (keyCode): 66→b
+        if(eventoVentana.keyCode == 66 &&eventoVentana.ctrlKey) {
+            const barraBúsqueda = document.querySelector('#barraBúsqueda');
+            barraBúsqueda.focus();
+        }
+    }
+    document.onkeydown = atajoTecla;
+</script>
+</html>
