@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo crear dinámicamente elementos HTML con JavaScript</title>
+</head>
+<body>
+    <!-- 1. Crear div -->
+    <div class="widget">
+        <!-- 2. Crear Cuadrado de texto -->
+        <input type="text" id="chat-entrada">
+        <!-- 3. Crear boton, en este caso para enviar mensaje
+        onclick (al Clickar)= "enviarMensaje()" // "texto del boton" -->
+        <button id="botonMensanje" onclick="enviarMensaje()">Enviar</button>
+        <div class="chat-envoltorio"></div>
+    </div>
+    
+</body>
+<script>
+    // Crear función
+    function enviarMensaje {
+        const nuevoDiv = document.createElement("div");
+        nuevoDiv.classList.add('chatMensaje');
+        let chatEntrada = document.querySelector('#chat-entrada').value; // ide del input
+        const nuevoContenido = document.createTextNode(chatEntrada);
+        nuevoDiv.appendChild(nuevoContenido);
+        const widget = document.querySelector(".widget");
+        let chatEnvoltorio = document.querySelector(".chat-envoltorio");
+        document.querySelector('#chat-entrada').value ="";
+        // Si hay alguno creado, el siguiente poner en index 0, es decir, arriba
+        if (document.querySelectorAll('.chatMensaje').length > 0) {
+            chatEnvoltorio = document.querySelectorAll('.chatMensaje')[0];
+        }
+        widget.insertBefore(nuevoDiv, chatEnvoltorio);
+    }
+</script>
+</html>
