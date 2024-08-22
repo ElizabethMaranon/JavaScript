@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title></title>
+
+  <style>
+    .tareaPendiente:hover {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tareas">
+    <h2>Tareas Pendientes</h2>
+    <ul>
+      <li class="tareaPendiente">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, animi.</li>
+      <li class="tareaPendiente">Numquam dolor quo alias nam vel voluptates magni magnam quisquam.</li>
+      <li class="tareaPendiente">Recusandae eaque quisquam facere ab reprehenderit cupiditate magni placeat quis?</li>
+      <li class="tareaPendiente">Expedita asperiores nam saepe voluptatem, nostrum aliquid debitis quam recusandae.</li>
+      <li class="tareaPendiente">Quaerat velit deserunt reprehenderit, vel placeat impedit accusamus non, deleniti!</li>
+    </ul>
+  </div>
+
+  <h2>Tareas Completadas</h2>
+  <ul class="tareasCompletadasLista">
+    <div class="completed"></div>
+  </ul>
+</body>
+
+<script>
+  const tareas = document.querySelectorAll('.tareaPendiente');
+  const tareasCompletadas = document.querySelector('.completed');
+  const tareasCompletadasLista = document.querySelector('.tareasCompletadasLista');
+
+  tareas.forEach(tarea => tarea.addEventListener('click', (event) => {
+    let tareaCompletada = document.createElement('li');
+    let contenidoTarea = document.createTextNode(tarea.textContent);
+    tareaCompletada.appendChild(contenidoTarea);
+    tareasCompletadasLista.insertBefore(tareaCompletada, tareasCompletadas);
+    tarea.remove();
+  }))
+</script>
+
+</html>
